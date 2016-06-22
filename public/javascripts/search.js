@@ -18,11 +18,9 @@ exports.searchImages = function (query, offset, callback) {
 
 	request(options, function (err, res, body) {
 		 if (err) {
-		 	console.log({'response': -1, 'body': 'Unable to fetch images.'});
 		 	callback({'response': -1, 'body': 'Unable to fetch images.'});
 		 } else {
-		 	console.log(body.value);
-		 	callback(body.value);
+		 	callback({'response': 0, 'body': body.value});
 		 }
 	})
 }
