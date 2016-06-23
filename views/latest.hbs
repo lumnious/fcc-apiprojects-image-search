@@ -1,0 +1,7 @@
+{
+{{#each results}}
+	<p>{{#each this}}
+		"{{@key}}" : "{{this}}" {{#unless @last}}, {{/unless}}
+	{{/each}}{{#unless @last}},{{/unless}}</p>
+{{/each}}
+}
