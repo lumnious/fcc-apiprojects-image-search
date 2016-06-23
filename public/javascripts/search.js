@@ -20,7 +20,7 @@ exports.searchImages = function (query, offset, callback) {
 		 if (err) {
 		 	callback({'response': -1, 'body': 'Unable to fetch images.'});
 		 } else {
-		 	callback({'response': 0, 'body': body.value});
+		 	callback({'response': 0, 'body': body.value, 'url': searchURL});
 		 }
 	})
 }

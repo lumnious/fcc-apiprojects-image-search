@@ -1,7 +1,7 @@
 var MongoClient = require('mongodb').MongoClient;
 
 var url = process.env.MONGODB_URI || 'mongodb://localhost:27017/imageSearch';
-var prj = {_id: 0, 'query': 1, 'searchurl': 1, 'dateTime': 1};
+var prj = {_id: 0, 'query': 1, 'dateTime': 1};
 
 var exports = module.exports = {};
 
@@ -27,7 +27,7 @@ exports.getSearches = function (callback) {
 	});
 };
 
-exports.recordSearch = function (query, searchurl, callback) {
+exports.recordSearch = function (query, searchurl, date, callback) {
 	MongoClient.connect(url, function (err, db) {
 		if (err) {
 			callback({'response': -1, 'body': 'Unable to save search, failed to connect to database'});
@@ -41,8 +41,9 @@ exports.recordSearch = function (query, searchurl, callback) {
 							callback({'response': -1, 'body': 'Unable to save search, failed to create collection'});
 						} else {
 							console.log('Capped collection created');
-							db.collection('searches').insertOne({'query': query, 'searchurl': searchurl, 'dateTime': {$currentDate: {$type: 'timestamp'}}}, function (err) {
+							db.collection('searches').insertOne({'query': query, 'searchurl': searchurl, 'dateTime': date}, function (err) {
 								if (err) {
+									console.log(err);
 									db.close();
 									callback({'response': -1, 'body': 'Unable to save search, failed to write to database'});
 								} else {
@@ -53,8 +54,9 @@ exports.recordSearch = function (query, searchurl, callback) {
 						}
 					});
 				} else {
-					db.collection('searches').insertOne({'query': query, 'searchurl': searchurl, 'dateTime': {$currentDate: {$type: 'timestamp'}}}, function (err) {
+					db.collection('searches').insertOne({'query': query, 'searchurl': searchurl, 'dateTime': date}, function (err) {
 						if (err) {
+							console.log(err)
 							db.close();
 							callback({'response': -1, 'body': 'Unable to save search, failed to write to database'});
 						} else {
