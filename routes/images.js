@@ -31,8 +31,10 @@ router.get('/:query', function(req, res, next) {
 			})
 			var now = new Date();
 			db.recordSearch(req.params.query, val.url, now, function (result) {
-				console.log(result);
-				res.send(searchResult)
+				res.render('images', {
+					title: 'Image Search',
+					results: searchResult});
+				//res.send(searchResult)
 			})
 		}
 	});

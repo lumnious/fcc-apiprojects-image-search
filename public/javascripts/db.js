@@ -12,7 +12,7 @@ exports.getSearches = function (callback) {
 			callback({'response': -1, 'body': 'Failed to connect to server'});
 		}	else {
 			console.log('Connected correctly to server');
-			db.collection('searches').find({}, prj).sort({time:-1}).limit(10).toArray(function (err, docs) {
+			db.collection('searches').find({}, prj).sort({dateTime:-1}).limit(10).toArray(function (err, docs) {
 				if (err) {
 					callback({'response': -1, 'body': 'Unable to recover latest searches'});
 				} else if (docs.length > 0) {

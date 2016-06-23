@@ -10,7 +10,6 @@ router.get('/', function(req, res, next) {
 			title: 'Latest Searches',
 			results: val.body
 		})
-		//res.send();
 	})
 });
 

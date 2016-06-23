@@ -1,8 +1,18 @@
 body {
-  padding: 50px;
+  padding: 10px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.alert-danger {
+	margin: 5px;
+	padding: 4px;
+}
+
+.alert-info {
+	margin-left: 20px;
+	padding: 2px;
 }

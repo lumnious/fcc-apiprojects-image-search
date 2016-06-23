@@ -1,2 +1,26 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="text-center">API Basejump: Image Search Abstraction Layer</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-10 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+			<p><strong>User stories:</strong></p>
+			<ol>
+				<li> I can get the image URLs, alt text and page urls for a set of images relating to a given search string.</li>
+				<li> I can paginate through the responses by adding a ?offset=2 parameter to the URL.</li>
+				<li> I can get a list of the most recently submitted search strings.</li>
+			</ol>
+
+			<h3>Example usage:</h3>
+			<p><span class="alert-danger">https://lut-fcc-image-search.herokuapp.com/images/kittens?offset=10</span></p>
+			<p><span class="alert-info">If no offset is passed, it is considered as <strong>offset=0</strong>. To get a complete new set of images, the offset should be incremented by multiples of 10.</span></p>
+			<p><span class="alert-danger">https://lut-fcc-image-search.herokuapp.com/latest</span></p>
+
+			<h3>Example output:</h3>
+			<p><span class="alert-danger">{"original":"http://www.google.com","shortened":"https://lut-url.herokuapp.com/XbzDLk"}</span></p>
+		</div>
+	</div>
+</div>
