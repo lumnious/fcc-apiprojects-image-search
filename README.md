@@ -6,7 +6,7 @@
 3. I can get a list of the most recently submitted search strings.
 
 ## Working Application
-https://lut-fcc-header-parser-ms.herokuapp.com
+https://lut-fcc-image-search.herokuapp.com/
 
 ## Example Use
 * https://lut-fcc-image-search.herokuapp.com/images/kittens?offset=10
